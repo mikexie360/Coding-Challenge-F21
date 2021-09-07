@@ -58,22 +58,28 @@
 <hr>
 
 <div class="main">
+       
     <div class="container">
         <div class="card">
             <div class = "card-header">
-                Main Points
+                Your raw text<br><br>
+                {{rawText}}
+                <br><br>    
+                Overall Analysis with Textblob
             </div>
             <div class="card-body">
                 <h5 class="card-title">
                     <div class="alert alert-primary" role="alert">
-                        This text has {{number_of_tokens}} tokens with {{len_of_words}} important points
+                        This text has {{number_of_tokens}} tokens.<br>                 
                     </div>
                 </h5>
+            <!---
             <div class="text">
                 <h5>Your Text</h5>
                 <p>Time Elapsed
                 <span style="color:rgb(132, 132, 226)">{{final_time}}</span>
                 </p>
+                
                 <p>This text is about </p>
                 {% for i in summary %}
                 <ul class="list-group">
@@ -83,11 +89,11 @@
                 
                 </ul>
                 {% endfor %} 
-
             </div>
+            --->
 <div class="card-footer text-muted">
     <table class="table table-stripes table-dark">
-        <thead>
+        <thead> Overall Sentiment Score using textblob
             <tr>
                 <th scope="col">Sentiment</th>
                 <th scope="col">Polarity</th>
@@ -105,6 +111,123 @@
 </div>
         </div>
     </div>
+
+    <div class="card">
+        <div class = "card-header">
+            Overall Emotion Scores with text2emotion
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                <div class="alert alert-primary" role="alert">
+                    Analysis of overall emotion scores
+                </div>
+            </h5>
+<div class="card-footer text-muted">
+<table class="table table-stripes table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Emotion</th>
+            <th scope="col">Happy</th>
+            <th scope="col">Angry</th>
+            <th scope="col">Surprise</th>
+            <th scope="col">Sad</th>
+            <th scope="col">Fear</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Score:</th>
+            <td>{{blob_emotion['Happy']}}</td>
+            <td>{{blob_emotion['Angry']}}</td>
+            <td>{{blob_emotion['Surprise']}}</td>
+            <td>{{blob_emotion['Sad']}}</td>
+            <td>{{blob_emotion['Fear']}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+    </div>
+</div>
+
+
+
+
+    <div class="card">
+        <div class = "card-header">
+            Overall Sentiment Scores with Vader sentiment
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                <div class="alert alert-primary" role="alert">
+                    Analysis of overall sentiment scores with Vader
+                </div>
+            </h5>
+<div class="card-footer text-muted">
+<table class="table table-stripes table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Sentiment</th>
+            <th scope="col">Positive</th>
+            <th scope="col">Neutral</th>
+            <th scope="col">Negative</th>
+            <th scope="col">Compound</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Score:</th>
+            <td>{{vader_overall['pos']}}</td>
+            <td>{{vader_overall['neu']}}</td>
+            <td>{{vader_overall['neg']}}</td>
+            <td>{{vader_overall['compound']}}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+    </div>
+</div>
+
+<div class="card">
+    <div class = "card-header">
+        Individual Sentence Score with Vader
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">
+            <div class="alert alert-primary" role="alert">
+                Analysis of each sentence with vader
+            </div>
+        </h5>
+<div class="card-footer text-muted">
+
+<p>Individual sentence analysis using vader </p>
+{% for i in range(0,number_of_sentences) %}
+<ul>
+    <li style="background-color:white;"><span style="color:black">{{blob.sentences[i]}}</span>
+        <ul color="black" style="background-color:white;"> <font color="black">
+            <li>
+                <p style="background-color:white;">Positive = {{vader_sentence[i]['pos']}}<p>
+            </li>
+            <li>
+                <p style="background-color:white;">Neutral = {{vader_sentence[i]['neu']}}</p>
+            </li>
+            <li>
+                <p style="background-color:white;">Negative = {{vader_sentence[i]['neg']}}</p>
+            </li>
+            <li>
+                <p style="background-color:white;">Compound = {{vader_sentence[i]['compound']}}</p>
+            </li>
+            </font>
+        </ul>
+    </li>
+
+</ul>
+{% endfor %} 
+</div>
+</div>
+</div>
+
+
 </div>
 {% endblock %}
 
