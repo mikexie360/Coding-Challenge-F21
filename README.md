@@ -36,7 +36,7 @@ Regardless if you can or cannot answer the question, provide a short explanation
 The following solution was made with Python3, Flask, textblob, vader as well as other python functions.
 Using sentiment anlaysis from textblob and vader, I was able to determine what the most probable sentiment was for the overal text, each sentence, as well as the overall emotions of the text.
 
-**How I built my program**
+## How I built my program
 I was already quite knowledgeble in python and textblob from previous courses at UTD. I also already have taken some NLP courses as a student. However I did do more research on sentiment analysis and possible libraries to use.
 
 I researched sentiment analysis using wikipedia, free online lectures on youtube, and tech articles and tutorials that go over sentiment analysis in python.
@@ -48,7 +48,7 @@ The most important one is probable textblob. I used textblob to help parse the t
 So I also used vader. Vader is an open source library that gives more accurate sentiment analysis according to tech articles that have done some testing comparing the two. Not only that but Vader is much better for sentiment anlysis on sentences than textblob.
 text2emotion was used for calculating the overall emotion of the raw text. Not very useful for short sentences though.
 
-**Overall Sentiment Score of the text file**
+## Overall Sentiment Score of the text file
 The overall sentiment score of the first text had a score of 0.188888 in polarity and 0.6242 in subjectivity according to textblob.
 The overall emotion of the first text had a score of .02 happy, .14 angry, .4 surprise, .14 sad and .3 fear. With surprise and fear being the most probable scores, using text2emotion.
 The overall sentiment score for the first text with vader had a score of 0.133 positve, .71 neutral, .157 negative and -0.9228 compound.
@@ -61,7 +61,7 @@ The entire input text had an overall sentiment score of .2135 polarity, .59539 s
 The overall emotion of the overall input text had a .17 happy, .07 angry, .3 surprise, .16 sad, and .3 fear, with text2emotion.
 The overall sentiment score with vader had a .173 positve, .758 neutral, .069 negative and .9978 compound.
 
-**What the Score means, and what I expected**
+## What the Score means, and what I expected
 In textblob, polarity is how positve, neutral and negative the sentiment of the text is. 1 is very positive, 0 is neutral and -1 is very negative.
 Subjectivity is how opinionated or factual the text is. 1 is very opinionated, and 0 is very factual.
 Emotions of the overall text was calculated using text2emotion. Emotions can be Happy, Angry, Surprise, Sad and Fear.
@@ -87,15 +87,15 @@ Our analysis on polarity and compound makes sense from textblob and vader. Howev
 
 Overall vader and text2emotion did a decent job at analysing the text, while textblob was more hit or miss.
 
-**Individual Sentence Scores**
+## Individual Sentence Scores
 The individual sentence scores does tell us the sentiment scores for each sentence without context from adjacent sentences.
 To have the individual sentence scores to give us more information, we would most likely need a graph to see how the sentiment scores in the sentences changes throughout the text.
 Right now the individual sentence scores do not tell us much, its better to use the overall sentiment score of the entire text right now.
 
-**Future**
+## Future
 In the future I would like to explore more python libraries for more accurate sentiment analysis, but also for individual sentence emotion analysis, and also I would like to use numpy and matplotlib.pyplot to draw graphs of how the senitment changes through out the texts.
 Weather or not using a graph plot to see the change in sentiment throughout the text is useful or not may require more research, but it will help us analyze the text.
 
-**Programming langauge, Library and API**
+## Programming langauge, Library and API
 Used Python3, textblob, vader, text2emotion, nltk, flask.
 In the future I would like to use random, time, numpy and matplotlib.pyplot
