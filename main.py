@@ -37,7 +37,7 @@ def analyze():
     sentence_subjectivity= list()
 
     #overall emotion
-    blob_emotion = ""
+    blob_emotion = {"Happy" : 0, "Angry": 0, "Surprise": 0, "Sad":0, "Fear":0}
 
     #for individual sentence emotion scores
     sentence_emotion = list()
@@ -93,6 +93,6 @@ def analyze():
         print("Overall emotions")
         print(blob_emotion)
         print("--------------------")
-    return render_template('index.html',blob=blob,number_of_sentences=number_of_sentences, rawText=rawText,vader_overall=vader_overall,vader_sentence=vader_sentence, blob_emotion=blob_emotion,sentence_subjectivity=sentence_subjectivity, sentence_list=sentence_list, sentence_sentiment= sentence_sentiment,recieved_text=recieved_text, number_of_tokens = number_of_tokens, blob_sentiment = blob_sentiment, blob_subjectivity = blob_subjectivity,summary = summary, final_time=final_time)
+    return render_template('index.html',blob=blob,number_of_sentences=number_of_sentences, rawText=rawText,vader_overall=vader_overall,vader_sentence=vader_sentence, blob_emotion=blob_emotion, sentence_subjectivity=sentence_subjectivity, sentence_list=sentence_list, sentence_sentiment= sentence_sentiment,recieved_text=recieved_text, number_of_tokens = number_of_tokens, blob_sentiment = blob_sentiment, blob_subjectivity = blob_subjectivity,summary = summary, final_time=final_time)
 if __name__=="__main__":
     app.run(debug=True)
